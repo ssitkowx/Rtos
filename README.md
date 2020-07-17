@@ -1,7 +1,7 @@
-# Template
+# Rtos
 
 # I. Description:
-Template for projects and packages.
+General class for rtos.
 
 # II. Assumption:
 The code stored here is a generic code, which means:
