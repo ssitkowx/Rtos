@@ -4,6 +4,7 @@
 //////////////////////////////// INCLUDES /////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
+#include <memory>
 #include <stdint.h>
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -31,17 +32,17 @@ class Rtos
         Rtos          () = default;
         virtual ~Rtos () = default;
 
-        virtual void     Delay                (const uint32_t v_ms)              = 0;
-        //virtual bool     GiveSemaphoreFromISR (void)                             = 0;
-        //virtual bool     TakeSemaphore        (void)                             = 0;
+        virtual void     Delay                (const uint32_t v_ms)                = 0;
+        virtual bool     GiveSemaphoreFromISR (const std::string & v_name)         = 0;
+        virtual bool     TakeSemaphore        (const std::string & v_name)         = 0;
 
-        virtual uint32_t GetCurrentHeapSize   (void)                             = 0;
-        virtual uint32_t GetCurrentStackSize  (const char * v_taskName)          = 0;
-        virtual uint32_t TaskCreate           (TaskFunctionType   v_taskFuncion,
-                                               const char * const v_taskName,
+        virtual uint32_t GetCurrentHeapSize   (void)                               = 0;
+        virtual uint32_t GetCurrentStackSize  (const std::string & v_name)         = 0;
+        virtual uint32_t TaskCreate           (TaskFunctionType    v_taskFuncion,
+                                               const std::string & v_taskName,
                                                const uint32_t     v_stackDepth,
                                                const uint32_t     v_priority,
-                                               TaskHandle         v_taskHandle)  = 0;
+                                               TaskHandle         v_taskHandle)    = 0;
 };
 
 ///////////////////////////////////////////////////////////////////////////////
