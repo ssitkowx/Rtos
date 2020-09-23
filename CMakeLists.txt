@@ -2,7 +2,6 @@ PROJECT                (Rtos)
 CMAKE_MINIMUM_REQUIRED (VERSION 3.16)
 
 SET (ProjectName            Project)
-SET (TestsName              Tests)
 SET (LibraryName            ${CMAKE_PROJECT_NAME}Lib)
 SET (CurrentPath            ${CMAKE_CURRENT_SOURCE_DIR})
 SET (PackagesPropertiesPath "")
@@ -40,7 +39,6 @@ MACRO (PARSE_SUBDIRECTORIES_PATHS search_directory paths)
 ENDMACRO ()
 
 PARSE_SUBDIRECTORIES_PATHS ("${ProjectFilesAndFolders}" ProjectPathsLists)
-PARSE_SUBDIRECTORIES_PATHS ("${TestFilesAndFolders}"    TestPathsLists)
 
 MACRO (REMOVE_FILES directory)
     FILE (GLOB removeLists ${directory}/*)
@@ -77,8 +75,6 @@ MACRO (GET_PACKAGES_PROPERTY pattern result)
 ENDMACRO()
 
 GET_PACKAGES_PROPERTY (PackageIncludePath PackageIncludesPaths)
-GET_PACKAGES_PROPERTY (PackageLibPath     PackageLibsPaths)
-GET_PACKAGES_PROPERTY (PackageName        PackageLibsNames)
 
 SET          (BuildPath ${CurrentPath}/Build)
 REMOVE_FILES ("${BuildPath}")
