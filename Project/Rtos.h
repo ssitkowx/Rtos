@@ -20,7 +20,7 @@
 class Rtos
 {
     private:
-        static Rtos * instance;
+        static inline Rtos * instance = nullptr;
 
     public:
         typedef void * TaskHandle;
@@ -29,7 +29,7 @@ class Rtos
         static void      SetInstance          (Rtos * v_instance) { instance = v_instance; }
         static Rtos *    GetInstance          (void) { return instance; }
 
-        Rtos          () = default;
+        Rtos () = default;
         virtual ~Rtos () = default;
 
         virtual void     Delay                (const uint32_t v_ms)                = 0;
@@ -44,7 +44,6 @@ class Rtos
                                                const uint32_t     v_priority,
                                                TaskHandle         v_taskHandle)    = 0;
 };
-
 ///////////////////////////////////////////////////////////////////////////////
 /////////////////////////////// END OF FILE ///////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
