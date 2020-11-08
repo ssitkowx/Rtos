@@ -32,7 +32,7 @@ class Rtos
         Rtos () = default;
         virtual ~Rtos () = default;
 
-        virtual void     Delay                (const uint32_t v_ms)                = 0;
+        virtual void     DelayInMs            (const uint32_t v_ms)                = 0;
         virtual bool     GiveSemaphoreFromISR (const std::string & v_name)         = 0;
         virtual bool     TakeSemaphore        (const std::string & v_name)         = 0;
 
