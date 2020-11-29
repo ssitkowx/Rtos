@@ -35,7 +35,6 @@ class Rtos
         virtual void     DelayInMs            (const uint32_t v_ms)                = 0;
         virtual bool     GiveSemaphoreFromISR (const std::string & v_name)         = 0;
         virtual bool     TakeSemaphore        (const std::string & v_name)         = 0;
-
         virtual uint32_t GetCurrentHeapSize   (void)                               = 0;
         virtual uint32_t GetCurrentStackSize  (const std::string & v_name)         = 0;
         virtual uint32_t TaskCreate           (TaskFunctionType    v_taskFuncion,
