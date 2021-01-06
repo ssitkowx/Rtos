@@ -32,16 +32,16 @@ class Rtos
         Rtos () = default;
         virtual ~Rtos () = default;
 
-        virtual void     DelayInMs            (const uint32_t v_ms)                = 0;
-        virtual bool     GiveSemaphoreFromISR (const std::string & v_name)         = 0;
-        virtual bool     TakeSemaphore        (const std::string & v_name)         = 0;
-        virtual uint32_t GetCurrentHeapSize   (void)                               = 0;
-        virtual uint32_t GetCurrentStackSize  (const std::string & v_name)         = 0;
-        virtual uint32_t TaskCreate           (TaskFunctionType    v_taskFuncion,
-                                               const std::string & v_taskName,
-                                               const uint32_t     v_stackDepth,
-                                               const uint32_t     v_priority,
-                                               TaskHandle         v_taskHandle)    = 0;
+        virtual void     DelayInMs            (const uint32_t v_ms)                  = 0;
+        virtual bool     GiveSemaphoreFromISR (const std::string_view v_name)        = 0;
+        virtual bool     TakeSemaphore        (const std::string_view v_name)        = 0;
+        virtual uint32_t GetCurrentHeapSize   (void)                                 = 0;
+        virtual uint32_t GetCurrentStackSize  (const std::string_view v_name)        = 0;
+        virtual uint32_t TaskCreate           (TaskFunctionType       v_taskFuncion,
+                                               const std::string_view v_taskName,
+                                               const uint32_t         v_stackDepth,
+                                               const uint32_t         v_priority,
+                                               TaskHandle             v_taskHandle)  = 0;
 };
 ///////////////////////////////////////////////////////////////////////////////
 /////////////////////////////// END OF FILE ///////////////////////////////////
