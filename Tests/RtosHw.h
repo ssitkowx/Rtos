@@ -11,11 +11,11 @@
 /////////////////////////// CLASSES/STRUCTURES ////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
-class RtosMock final : public Rtos
+class RtosHw final : public Rtos
 {
     public:
-        RtosMock () = default;
-        ~RtosMock () = default;
+        RtosHw () = default;
+        ~RtosHw () = default;
 
         MOCK_METHOD1 (DelayInMs           , void (const uint32_t));
         MOCK_METHOD1 (TakeSemaphore       , bool (std::string_view v_name));
