@@ -29,19 +29,20 @@ class Rtos
         Rtos () = default;
         virtual ~Rtos () = default;
 
-        static void      SetInstance              (Rtos * v_instance) { instance = v_instance; }
-        static Rtos *    GetInstance              (void             ) { return instance;       }
+        static void      SetInstance          (Rtos * v_instance) { instance = v_instance; }
+        static Rtos *    GetInstance          (void             ) { return instance;       }
 
-        virtual void     DelayInMs                (const uint32_t v_ms)           = 0;
-        virtual bool     TakeSemaphore            (std::string_view v_name)       = 0;
-        virtual bool     GiveSemaphoreFromISR     (std::string_view v_name)       = 0;
-        virtual uint32_t GetCurrentHeapSize       (void)                          = 0;
-        virtual uint32_t GetCurrentStackSize      (std::string_view v_name)       = 0;
-        virtual uint32_t TaskCreate               (TaskFunctionType v_taskFuncion,
-                                                   std::string_view v_taskName,
-                                                   const uint32_t   v_stackDepth,
-                                                   const uint32_t   v_priority,
-                                                   TaskHandle       v_taskHandle) = 0;
+        virtual void     TaskDelete           (void)                          = 0;
+        virtual void     DelayInMs            (const uint32_t v_ms)           = 0;
+        virtual bool     TakeSemaphore        (std::string_view v_name)       = 0;
+        virtual bool     GiveSemaphoreFromISR (std::string_view v_name)       = 0;
+        virtual uint32_t GetCurrentHeapSize   (void)                          = 0;
+        virtual uint32_t GetCurrentStackSize  (std::string_view v_name)       = 0;
+        virtual uint32_t TaskCreate           (TaskFunctionType v_taskFuncion,
+                                               std::string_view v_taskName,
+                                               const uint32_t   v_stackDepth,
+                                               const uint32_t   v_priority,
+                                               TaskHandle       v_taskHandle) = 0;
 };
 ///////////////////////////////////////////////////////////////////////////////
 /////////////////////////////// END OF FILE ///////////////////////////////////
