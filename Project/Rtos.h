@@ -11,7 +11,7 @@
 /////////////////////////// MACROS/DEFINITIONS ////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
-#define SET_RTOS_INST(INSTANCE) Rtos <ThreadXHw>::SetInstance (INSTANCE);
+#define SET_RTOS_INST(INSTANCE) Rtos <ThreadXHw>::SetInst (INSTANCE);
 
 ///////////////////////////////////////////////////////////////////////////////
 /////////////////////////// CLASSES/STRUCTURES ////////////////////////////////
@@ -24,7 +24,7 @@ class Rtos
     DERIVED_TYPE & derivedType = static_cast <DERIVED_TYPE &>(*this);
 
     private:
-        static inline DERIVED_TYPE * instance = nullptr;
+        static inline DERIVED_TYPE * inst = nullptr;
 
     public:
         Rtos            ()                           = default;
@@ -33,12 +33,12 @@ class Rtos
         Rtos & operator=(DERIVED_TYPE && vRtos)      = delete;
         virtual ~Rtos   ()                           = default;
 
-        static void           SetInstance (DERIVED_TYPE * const vInstance) { instance = vInstance;        }
-        static DERIVED_TYPE * GetInstance (void              )             { return instance;             }
+        static void           SetInst (DERIVED_TYPE * const vInstance) { inst = vInstance; }
+        static DERIVED_TYPE * GetInst (void              )             { return inst;      }
 
-        void                  Init        (void)                           { derivedType.Init      ();    }
-        void                  DeInit      (void)                           { derivedType.DeInit    ();    }
-        void                  DelayInMs   (const uint32_t vMs)             { derivedType.DelayInMs (vMs); }
+        void                  Init        (void)                       { derivedType.Init      ();    }
+        void                  DeInit      (void)                       { derivedType.DeInit    ();    }
+        void                  DelayInMs   (const uint32_t vMs)         { derivedType.DelayInMs (vMs); }
 };
 
 ///////////////////////////////////////////////////////////////////////////////
