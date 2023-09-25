@@ -30,9 +30,10 @@ class Rtos
         static void           SetInst (DERIVED_TYPE * const vInstance) { inst = vInstance; }
         static DERIVED_TYPE * GetInst (void              )             { return inst;      }
 
-        void                  Init        (void)                       { derivedType.Init      ();    }
-        void                  DeInit      (void)                       { derivedType.DeInit    ();    }
-        void                  DelayInMs   (const uint32_t vMs)         { derivedType.DelayInMs (vMs); }
+        void                  Init       (void)                        { derivedType.Init       ();    }
+        void                  DeInit     (void)                        { derivedType.DeInit     ();    }
+        void                  TaskDelete (void)                        { derivedType.TaskDelete ();    }
+        void                  DelayInMs  (const uint32_t vMs)          { derivedType.DelayInMs  (vMs); }
 };
 
 ///////////////////////////////////////////////////////////////////////////////
