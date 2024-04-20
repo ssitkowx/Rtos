@@ -35,7 +35,8 @@ class Rtos
         void                  TaskDelete           (void)                           { derivedType.TaskDelete ();                       }
         uint16_t              GetFreeHeapSize      (void)                           { return derivedType.GetFreeHeapSize ();           }
         void                  DelayInMs            (const uint32_t vMs)             { derivedType.DelayInMs (vMs);                     }
-        bool                  TakeSemaphore        (std::string_view vName)         { return derivedType.TakeSemaphore (vName);        }
+        bool                  TakeMutex            (std::string_view vName)         { return derivedType.DelayInMs (vName);            }
+        void                  GiveMutex            (std::string_view vName)         { derivedType.DelayInMs (vName);                   }
         uint16_t              GetFreeStackSize     (std::string_view vTaskName)     { return derivedType.GetFreeStackSize (vTaskName); }
         bool                  GiveSemaphoreFromISR (std::string_view vName)         { return derivedType.GiveSemaphoreFromISR (vName); }
 };
