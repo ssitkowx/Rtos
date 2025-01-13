@@ -28,7 +28,7 @@ class Rtos
         virtual ~Rtos   ()                           = default;
 
         static void           SetInst              (DERIVED_TYPE * const vInstance) { inst = vInstance; }
-        Rtos *                operator             ()()                             { return inst;      }
+        static DERIVED_TYPE * GetInst              (void)                           { return inst;      }
 
         void                  Init                 (void)                           { derivedType.Init       ();                       }
         void                  DeInit               (void)                           { derivedType.DeInit     ();                       }
